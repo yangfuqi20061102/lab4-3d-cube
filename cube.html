@@ -8,67 +8,32 @@
             width: 200px;
             height: 200px;
             margin: 100px auto;
-            perspective: 1000px; /* 3D 透视效果 */
+            perspective: 1000px;
         }
-
         .cube {
             width: 100%;
             height: 100%;
             position: relative;
-            transform-style: preserve-3d; /* 保留 3D 空间 */
-            transform: rotateX(30deg) rotateY(45deg); /* 初始角度，方便看 3D 效果 */
+            transform-style: preserve-3d;
+            transform: rotateX(30deg) rotateY(45deg);
+            animation: rotate 10s infinite linear;
         }
-
+        @keyframes rotate {
+            0% { transform: rotateX(30deg) rotateY(45deg); }
+            100% { transform: rotateX(30deg) rotateY(405deg); }
+        }
         .cube__face {
             position: absolute;
             width: 200px;
             height: 200px;
             opacity: 0.8;
         }
-
-        /* 前面 */
-        .cube__face--front {
-            background: linear-gradient(45deg, #ff9a9e, #fad0c4);
-            transform: translateZ(100px);
-        }
-
-        /* 右面 */
-        .cube__face--right {
-            background: linear-gradient(135deg, #a18cd1, #fbc2eb);
-            transform: translateX(100px) rotateY(90deg);
-        }
-
-        /* 后面 */
-        .cube__face--back {
-            background: linear-gradient(225deg, #667eea, #764ba2);
-            transform: translateZ(-100px) rotateY(180deg);
-        }
-
-        /* 左面 */
-        .cube__face--left {
-            background: linear-gradient(315deg, #f093fb, #f5576c);
-            transform: translateX(-100px) rotateY(-90deg);
-        }
-
-        /* 上面 */
-        .cube__face--top {
-            background: linear-gradient(0deg, #4facfe, #00f2fe);
-            transform: translateY(-100px) rotateX(90deg);
-        }
-
-        /* 下面 */
-        .cube__face--bottom {
-            background: linear-gradient(180deg, #43e97b, #38f9d7);
-            transform: translateY(100px) rotateX(-90deg);
-        }
-
-        /* 可选：加上 skew 效果，更贴合题目要求 */
-        .cube__face--front {
-            transform: translateZ(100px) skewX(10deg) skewY(5deg);
-        }
-        .cube__face--right {
-            transform: translateX(100px) rotateY(90deg) skewX(-5deg) skewY(10deg);
-        }
+        .cube__face--front  { background: #ff9a9e; transform: translateZ(100px); }
+        .cube__face--right  { background: #a18cd1; transform: translateX(100px) rotateY(90deg); }
+        .cube__face--back   { background: #667eea; transform: translateZ(-100px) rotateY(180deg); }
+        .cube__face--left   { background: #f093fb; transform: translateX(-100px) rotateY(-90deg); }
+        .cube__face--top    { background: #4facfe; transform: translateY(-100px) rotateX(90deg); }
+        .cube__face--bottom { background: #43e97b; transform: translateY(100px) rotateX(-90deg); }
     </style>
 </head>
 <body>
